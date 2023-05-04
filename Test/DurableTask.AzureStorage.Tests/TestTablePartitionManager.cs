@@ -79,10 +79,10 @@ namespace DurableTask.AzureStorage.Tests
                     if (partition.CurrentOwner == null) break;
                     if (partition.CurrentOwner == "0") worker0PartitionNum++;
                     if (partition.CurrentOwner == "1") worker1PartitionNum++;
-                    if (worker0PartitionNum == worker1PartitionNum) isBalanced = true;
                 }
-                if (isBalanced)
+                if (worker0PartitionNum == worker1PartitionNum)
                 {
+                    isBalanced = true;
                     Assert.AreEqual(2, worker1PartitionNum);
                     Assert.AreEqual(2, worker0PartitionNum);
                 }
@@ -133,13 +133,11 @@ namespace DurableTask.AzureStorage.Tests
                     if (partition.CurrentOwner == "1") worker1PartitionNum++;
                     if (partition.CurrentOwner == "2") worker2PartitionNum++;
                     if (partition.CurrentOwner == "3") worker3PartitionNum++;
-                    if (worker0PartitionNum == worker1PartitionNum && worker2PartitionNum == worker3PartitionNum && worker0PartitionNum == worker2PartitionNum)
-                    {
-                        isBalanced = true;
-                    }
                 }
-                if (isBalanced)
+                
+                if ((worker0PartitionNum == worker1PartitionNum) && (worker2PartitionNum == worker3PartitionNum) && (worker0PartitionNum == worker2PartitionNum))
                 {
+                    isBalanced = true;
                     Assert.AreEqual(1, worker0PartitionNum);
                 }
             }
@@ -193,13 +191,10 @@ namespace DurableTask.AzureStorage.Tests
                     if (partition.CurrentOwner == "1") worker1PartitionNum++;
                     if (partition.CurrentOwner == "2") worker2PartitionNum++;
                     if (partition.CurrentOwner == "3") worker3PartitionNum++;
-                    if (worker0PartitionNum == worker1PartitionNum && worker2PartitionNum == worker3PartitionNum && worker0PartitionNum == worker2PartitionNum)
-                    {
-                        isBalanced = true;
-                    }
                 }
-                if (isBalanced)
+                if ((worker0PartitionNum == worker1PartitionNum) && (worker2PartitionNum == worker3PartitionNum) && (worker0PartitionNum == worker2PartitionNum))
                 {
+                    isBalanced = true;
                     Assert.AreEqual(1, worker0PartitionNum);
                 }
             }
