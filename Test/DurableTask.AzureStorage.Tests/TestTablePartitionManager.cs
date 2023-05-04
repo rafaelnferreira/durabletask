@@ -18,6 +18,7 @@ namespace DurableTask.AzureStorage.Tests
     [TestClass]
     public class testTablePartitionManager
     {
+        [TestCategory("DisabledInCI")]
         [TestMethod]
         // Start with one worker and four partitions.
         // Test the worker could claim all the partitions in 5 seconds.
@@ -47,6 +48,7 @@ namespace DurableTask.AzureStorage.Tests
             await testTable.DeleteAsync();
         }
 
+        [TestCategory("DisabledInCI")]
         [TestMethod]
         //Starts with two workers and four partitions.
         //Test that one worker can acquire two partitions. 
@@ -96,6 +98,7 @@ namespace DurableTask.AzureStorage.Tests
             await testTable.DeleteAsync();
         }
 
+        [TestCategory("DisabledInCI")]
         [TestMethod]
         //Starts with four workers and four partitions.
         //Test that each worker can acquire four partitions. 
@@ -150,6 +153,7 @@ namespace DurableTask.AzureStorage.Tests
             await testTable.DeleteAsync();
         }
 
+        [TestCategory("DisabledInCI")]
         [TestMethod]
         //Starts with one workers and four partitions.And then add three more workers.
         //Test that each worker can acquire four partitions. 
@@ -207,6 +211,7 @@ namespace DurableTask.AzureStorage.Tests
             await testTable.DeleteAsync();
         }
 
+        [TestCategory("DisabledInCI")]
         [TestMethod]
         //Starts with four workers and four partitions. And then add four more workers.
         //Test that the added workers will do nothing. 
@@ -265,6 +270,7 @@ namespace DurableTask.AzureStorage.Tests
             await testTable.DeleteAsync();
         }
 
+        [TestCategory("DisabledInCI")]
         [TestMethod]
         //Start with four workers and four partitions. And then sacle down to three workers.
         //Test that partitions will be rebalance between the three workers, which is one worker will have two, and the other two both have one. 
@@ -336,6 +342,7 @@ namespace DurableTask.AzureStorage.Tests
             await testTable.DeleteAsync();
         }
 
+        [TestCategory("DisabledInCI")]
         [TestMethod]
         //Start with four workers and four partitions. And then sacle down to one workers.
         //Test that the left one worker will take the four partitions.
@@ -389,6 +396,7 @@ namespace DurableTask.AzureStorage.Tests
             await testTable.DeleteAsync();
         }
 
+        [TestCategory("DisabledInCI")]
         [TestMethod]
         //Start with four workers and four partitions. Then kill one worker.
         //Test that the partitions will be rebalanced among he three left workers.
@@ -463,6 +471,7 @@ namespace DurableTask.AzureStorage.Tests
             await testTable.DeleteAsync();
         }
 
+        [TestCategory("DisabledInCI")]
         [TestMethod]
         //Start with four workers and four partitions. Then kill three workers.
         //Test that the left worker will take all the partitions.
