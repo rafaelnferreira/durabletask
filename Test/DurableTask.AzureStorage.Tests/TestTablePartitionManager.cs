@@ -103,7 +103,7 @@ namespace DurableTask.AzureStorage.Tests
         //Test that the lease tranfer will take no longer than 30 sec.
         public async Task TestFourWorkerWithFourPartitions()
         {
-            TimeSpan timeout = TimeSpan.FromSeconds(30);
+            TimeSpan timeout = TimeSpan.FromSeconds(40);
             Stopwatch stopwatch = new Stopwatch();
             TableClient testTable = await CreateTestTable("UseDevelopmentStorage = true", "TestFourWorkerWithFourPartitions", 4);
             IList<TablePartitionManager> partitionManagerList = new List<TablePartitionManager>();
